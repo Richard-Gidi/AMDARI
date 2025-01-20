@@ -1,4 +1,4 @@
-# Amdari Project 1: Cohort Analysis and Customer Segmentation Using K-Means  
+#Cohort Analysis and Customer Segmentation Using K-Means  
 
 This repository contains an implementation of a Cohort Analysis and Customer Segmentation project for an e-commerce business. The project focuses on analyzing customer behavior, retention patterns, and segmentation using clustering techniques to provide actionable insights for enhancing customer engagement.  
 
