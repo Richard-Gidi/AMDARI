@@ -9,11 +9,11 @@ Original file is located at
 
 #!pip install streamlit
 
-from google.colab import drive
+#from google.colab import drive
 
 
 # Mount our drive to the working space
-drive.mount('/content/gdrive')
+#drive.mount('/content/gdrive')
 
 import streamlit as st
 import joblib
