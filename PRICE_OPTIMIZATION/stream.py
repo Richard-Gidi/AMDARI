@@ -23,7 +23,7 @@ import pickle
 
 
 # Load the trained model
-model = joblib.load('/content/gdrive/MyDrive/AMDARI/Jewelry Price Optimization/jewelry_price_optimizer_linear.pkl')
+model = joblib.load('models/jewelry_price_optimizer_linear.pkl')
 
 # Define model metrics (replace with your actual metrics)
 METRICS = {
