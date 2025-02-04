@@ -1,0 +1,11 @@
+joblib
+lightgbm
+matplotlib
+numpy
+pandas
+scikit-learn
+scipy
+seaborn
+streamlit
+xgboost
+linear regression
