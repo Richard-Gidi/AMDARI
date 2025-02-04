@@ -1,6 +1,5 @@
 # 💎 Gemineye Jewelry Price Optimization
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 
 A data-driven solution for optimizing pricing strategies in luxury jewelry retail.
@@ -50,9 +49,9 @@ A data-driven solution for optimizing pricing strategies in luxury jewelry retai
 | Model | Train R² | Test R² | RMSE |
 |-------|----------|---------|------|
 | Linear Regression | 0.074 | 0.106 | $370 |
-| Random Forest | 0.891 | 0.885 | $98 |
-| Gradient Boosting | 0.902 | 0.894 | $92 |
-| Neural Network | 0.915 | 0.901 | $88 |
+| Random Forest | NA | NA | NA |
+| Gradient Boosting | NA | NA| NA |
+| Neural Network |NA | NA | NA |
 
 ## 💡 Recommendations
 1. **Dynamic Pricing**
@@ -69,6 +68,6 @@ A data-driven solution for optimizing pricing strategies in luxury jewelry retai
 
 ## 🛠️ Installation
 ```bash
-git clone https://github.com/yourusername/gemineye-pricing.git
-cd gemineye-pricing
+git clone https://github.com/Richard-Gidi/AMDARI/tree/main/PRICE_OPTIMIZATION
+cd Jewelry_Optimization
 pip install -r requirements.txt
