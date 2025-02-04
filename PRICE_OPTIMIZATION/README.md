@@ -65,6 +65,8 @@ A data-driven solution for optimizing pricing strategies in luxury jewelry retai
 3. **Customer Engagement**
    - 💎 VIP programs for bulk buyers (Cluster 1)
    - 🎁 Bundle offers for premium buyers (Cluster 2)
+  
+   ##Demo (https://amdari-p2.streamlit.app/)
 
 ## 🛠️ Installation
 ```bash
