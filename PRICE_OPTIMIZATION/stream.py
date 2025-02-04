@@ -34,6 +34,7 @@ METRICS = {
     "Generalization Error": 1.8
 }
 
+
 def user_input_features():
     st.sidebar.header("Model Performance Metrics")
     for metric, value in METRICS.items():
@@ -50,10 +51,23 @@ def user_input_features():
     main_metal = st.selectbox("Main Metal", ["None", "platinum", "silver"])
     metal_platinum = (main_metal == "platinum")
     metal_silver = (main_metal == "silver")
+    # Add main_metal_unknown if necessary (if model has "unknown" category)
 
+    # Main color selection
+    main_color = st.selectbox("Main Color", ["unknown-color", "white", "yellow"])
+    color_unknown = (main_color == "unknown-color")
+    color_white = (main_color == "white")
+    color_yellow = (main_color == "yellow")
+
+    # Gender selection
+    gender = st.selectbox("Gender", ["m", "f", "unknown"])
+    gender_m = (gender == "m")
+    # gender_f = (gender == "f") - Unused as per your feature set
 
     # Jewelry category
-    category = st.selectbox("Category", ["necklace", "pendant", "ring", "souvenir", "stud"])
+    category = st.selectbox("Category", ["brooch", "earring", "necklace", "pendant", "ring", "souvenir", "stud"])
+    cat_brooch = (category == "brooch")
+    cat_earring = (category == "earring")
     cat_necklace = (category == "necklace")
     cat_pendant = (category == "pendant")
     cat_ring = (category == "ring")
@@ -75,6 +89,12 @@ def user_input_features():
         'Hour': hour,
         'Main_metal_platinum': metal_platinum,
         'Main_metal_silver': metal_silver,
+        'Main_color_unknown-color': color_unknown,
+        'Main_color_white': color_white,
+        'Main_color_yellow': color_yellow,
+        'Gender_m': gender_m,
+        'Category_jewelry.brooch': cat_brooch,
+        'Category_jewelry.earring': cat_earring,
         'Category_jewelry.necklace': cat_necklace,
         'Category_jewelry.pendant': cat_pendant,
         'Category_jewelry.ring': cat_ring,
