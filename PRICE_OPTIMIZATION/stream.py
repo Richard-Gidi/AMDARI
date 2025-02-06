@@ -27,11 +27,11 @@ model = joblib.load('PRICE_OPTIMIZATION/models/jewelry_price_optimizer_linear.pk
 
 # Define model metrics (replace with your actual metrics)
 METRICS = {
-    "Train R²": 0.85,  # Replace with your values
-    "Test R²": 0.80,
-    "Train RMSE": 10.5,
-    "Test RMSE": 12.3,
-    "Generalization Error": 1.8
+    "Train R²": 0.07,  
+    "Test R²": 0.10,
+    "Train RMSE": 440,
+    "Test RMSE": 370,
+    "Generalization Error": 69
 }
 
 
