@@ -43,7 +43,7 @@ def user_input_features():
     st.header("Input Features")
 
     # Numerical inputs
-    year = st.number_input("Year", min_value=2018, max_value=2023, value=2020)
+    year = st.number_input("Year", min_value=2018, max_value=2034, value=2020)
     month = st.number_input("Month", min_value=1, max_value=12, value=1)
     hour = st.number_input("Hour", min_value=0, max_value=23, value=12)
 
