@@ -43,18 +43,6 @@ def home_page():
     Metrics like R² and RMSE highlight the model's performance, and you can view these in the sidebar.
     """)
 
-# Prediction page content
-def prediction_page():
-    st.sidebar.header("Model Performance Metrics")
-    for metric, value in METRICS.items():
-        st.sidebar.text(f"{metric}: {value:.2f}")
-
-    st.header("Jewelry Price Prediction")
-    input_df = user_input_features()
-
-    if st.button("Predict"):
-        prediction = model.predict(input_df)
-        st.success(f"Predicted Price: ${prediction[0]:.2f} USD")
 
 # Feature Explanation page
 def feature_explanation_page():
@@ -74,6 +62,20 @@ def feature_explanation_page():
     
     Each categorical feature is converted into a one-hot encoded format for model training.
     """)
+
+# Prediction page content
+def prediction_page():
+    st.sidebar.header("Model Performance Metrics")
+    for metric, value in METRICS.items():
+        st.sidebar.text(f"{metric}: {value:.2f}")
+
+    st.header("Jewelry Price Prediction")
+    input_df = user_input_features()
+
+    if st.button("Predict"):
+        prediction = model.predict(input_df)
+        st.success(f"Predicted Price: ${prediction[0]:.2f} USD")
+
 
 # Input features function
 def user_input_features():
