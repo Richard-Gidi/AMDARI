@@ -18,7 +18,7 @@ METRICS = {
 # Sidebar navigation
 def sidebar_navigation():
     st.sidebar.title("Navigation")
-    return st.sidebar.radio("Go to", ["Home", "Prediction"])
+    return st.sidebar.radio("Go to", ["Home","Feature Explanation", "Prediction"])
 
 # Home page content
 def home_page():
@@ -43,6 +43,26 @@ def home_page():
     This tool is powered by a machine learning model built using historical jewelry sales data. 
     Metrics like R² and RMSE highlight the model's performance, and you can view these in the sidebar.
     """)
+
+# Feature Explanation page
+def feature_explanation_page():
+    st.title("Feature Explanation")
+    st.write("""
+    Below is a breakdown of each feature used in the model:
+    
+    - **Year**: The year the jewelry product was sold.
+    - **Month**: The month of sale (1-12). 1 is Jan, 2 is Feb in that order
+    - **Hour**: The hour of the day the transaction occurred (0-23).
+    - **Main Metal**: The primary metal used in the jewelry (Platinum, Silver, etc.).
+    - **Main Color**: The primary color of the jewelry (White, Yellow, Unknown).
+    - **Gender**: The target gender for the jewelry (Male, Female, Unknown).
+    - **Category**: The type of jewelry (e.g., brooch, earring, necklace, etc.).
+    - **Brand**: The brand under which the jewelry is sold (Brand 1, Brand 2, etc.).
+    - **Main Gemstone**: The primary gemstone used in the jewelry (e.g., diamond, emerald, ruby, etc.).
+    
+    Each categorical feature is converted into a one-hot encoded format for model training.
+    """)
+
 
 # Prediction page content
 def prediction_page():
@@ -139,14 +159,19 @@ def user_input_features():
 
     return pd.DataFrame(features, index=[0])
 
-# Main function to run the app
+# Main function
 def main():
     page = sidebar_navigation()
-
     if page == "Home":
         home_page()
+    elif page == "Feature Explanation":
+        feature_explanation_page()
     elif page == "Prediction":
         prediction_page()
+
+if __name__ == "__main__":
+    main()
+
 
 if __name__ == "__main__":
     main()
