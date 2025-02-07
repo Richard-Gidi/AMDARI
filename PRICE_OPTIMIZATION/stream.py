@@ -18,7 +18,7 @@ METRICS = {
 # Sidebar navigation
 def sidebar_navigation():
     st.sidebar.title("Navigation")
-    return st.sidebar.radio("Go to", ["Home","Feature Explanation", "Prediction"])
+    return st.sidebar.radio("Go to", ["Home","Feature Explanation", "Prediction","Recommendations"])
 
 # Home page content
 def home_page():
@@ -159,6 +159,65 @@ def user_input_features():
 
     return pd.DataFrame(features, index=[0])
 
+
+# Recommendations page content
+def recommendations_page():
+    st.title("Jewelry Pricing Recommendations")
+
+    # Let the user choose one of the four options
+    option = st.selectbox(
+        "Choose a Pricing Strategy",
+        [
+            "Moderate Spending, Low Quantity, and Low Frequency",
+            "High Spending, Very High Quantity, and High Frequency",
+            "High Spending, Moderate Quantity, and Moderate Frequency",
+            "General Recommendations"
+        ]
+    )
+
+    # Show recommendations based on user selection
+    if option == "Moderate Spending, Low Quantity, and Low Frequency":
+        st.header("Recommendations for Moderate Spending, Low Quantity, and Low Frequency")
+        st.write("""
+        **Objective:** Increase spending per transaction and encourage more frequent purchases.
+
+        - **Premium Pricing for Exclusive Items:** Position jewelry at a premium price for high-quality or exclusive pieces.
+        - **Loyalty Programs:** Introduce rewards-based loyalty programs to incentivize repeat purchases.
+        - **Seasonal and Targeted Promotions:** Implement seasonal promotions or personalized offers.
+        - **Upselling and Cross-Selling:** Bundle related items and offer them at a slight discount.
+        """)
+
+    elif option == "High Spending, Very High Quantity, and High Frequency":
+        st.header("Recommendations for High Spending, Very High Quantity, and High Frequency")
+        st.write("""
+        **Objective:** Maximize the value of large, frequent purchases through volume-based pricing and incentivize continued bulk buying.
+
+        - **Volume-Based Pricing & Bulk Discounts:** Offer wholesale pricing and bulk discounts.
+        - **Exclusive Deals for High-Volume Buyers:** Provide exclusive deals like discounts or free shipping for large orders.
+        - **Customized Bulk Offerings:** Create special packages for wholesale or business clients.
+        - **Subscription Model:** Introduce a subscription service for regular shipments.
+        """)
+
+    elif option == "High Spending, Moderate Quantity, and Moderate Frequency":
+        st.header("Recommendations for High Spending, Moderate Quantity, and Moderate Frequency")
+        st.write("""
+        **Objective:** Encourage more frequent purchases while maintaining high-value transactions.
+
+        - **Premium but Accessible Pricing:** Offer jewelry at a premium price but make it accessible for regular purchases.
+        - **Bundle Pricing & Volume Discounts:** Provide bundle offers with discounts.
+        - **Incentivize Regular Purchases:** Offer loyalty rewards and incentives for repeat purchases.
+        - **Exclusive Promotions and Early Access:** Offer early access to new collections.
+        """)
+
+    elif option == "General Recommendations":
+        st.header("General Recommendations for All Customers")
+        st.write("""
+        - **Personalized Offers:** Utilize customer data for personalized recommendations.
+        - **Flexible Payment Options:** Offer flexible payment plans for high-ticket items.
+        - **Customer Education:** Highlight craftsmanship and design to justify premium prices.
+        """)
+        
+
 # Main function
 def main():
     page = sidebar_navigation()
@@ -168,6 +227,8 @@ def main():
         feature_explanation_page()
     elif page == "Prediction":
         prediction_page()
+    elif page == "Recommendations":
+        recommendations_page()
 
 if __name__ == "__main__":
     main()
