@@ -22,7 +22,7 @@ def sidebar_navigation():
 
 # Home page content
 def home_page():
-    st.title("Jewelry Price Optimization Project")
+    st.title("Jewelry Price Optimization")
     st.header("About the Project")
     st.write("""
     This application is designed to assist jewelry businesses in predicting optimal pricing for their products. 
