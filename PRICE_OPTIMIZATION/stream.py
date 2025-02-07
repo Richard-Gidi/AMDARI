@@ -23,7 +23,7 @@ import pickle
 
 
 # Load the trained model
-model = joblib.load('PRICE_OPTIMIZATION/models/jewelry_price_optimizer_linear.pkl')
+model = joblib.load('PRICE_OPTIMIZATION/models/jewelry_price_optimizer_xgb.pkl')
 
 # Define model metrics (replace with your actual metrics)
 METRICS = {
