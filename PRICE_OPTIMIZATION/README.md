@@ -50,8 +50,11 @@ A data-driven solution for optimizing pricing strategies in luxury jewelry retai
 |-------|----------|---------|------|
 | Linear Regression | 0.074 | 0.106 | $370 |
 | Random Forest | NA | NA | NA |
-| Gradient Boosting | NA | NA| NA |
+| Gradient Boosting | 0.27| 0.23| 342.79 |
 | Neural Network |NA | NA | NA |
+| Decision Tree Regressor |0.25 | 0.14| 363.49 |
+| Support Vector Regressor |0.13 | 0.17| 356.15 |
+| XGB |0.26 | 0.24| 392.77 |
 
 ## 💡 Recommendations
 1. **Dynamic Pricing**
