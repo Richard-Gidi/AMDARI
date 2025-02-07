@@ -15,12 +15,11 @@ Original file is located at
 # Mount our drive to the working space
 #drive.mount('/content/gdrive')
 
+
+# -*- coding: utf-8 -*-
 import streamlit as st
 import joblib
 import pandas as pd
-import pickle
-
-
 
 # Load the trained model
 model = joblib.load('PRICE_OPTIMIZATION/models/jewelry_price_optimizer_xgb.pkl')
@@ -33,7 +32,6 @@ METRICS = {
     "Test RMSE": 370,
     "Generalization Error": 69
 }
-
 
 def user_input_features():
     st.sidebar.header("Model Performance Metrics")
@@ -51,7 +49,6 @@ def user_input_features():
     main_metal = st.selectbox("Main Metal", ["None", "platinum", "silver"])
     metal_platinum = (main_metal == "platinum")
     metal_silver = (main_metal == "silver")
-    # Add main_metal_unknown if necessary (if model has "unknown" category)
 
     # Main color selection
     main_color = st.selectbox("Main Color", ["unknown-color", "white", "yellow"])
@@ -62,7 +59,6 @@ def user_input_features():
     # Gender selection
     gender = st.selectbox("Gender", ["m", "f", "unknown"])
     gender_m = (gender == "m")
-    # gender_f = (gender == "f") - Unused as per your feature set
 
     # Jewelry category
     category = st.selectbox("Category", ["brooch", "earring", "necklace", "pendant", "ring", "souvenir", "stud"])
@@ -81,6 +77,27 @@ def user_input_features():
     brand_3 = (brand == "Brand 3")
     brand_4 = (brand == "Brand 4")
     brand_5 = (brand == "Brand 5")
+
+    # Main gemstone selection
+    main_gem = st.selectbox(
+        "Main Gemstone",
+        [
+            "amber", "amethyst", "chrysolite", "chrysoprase", "citrine", "coral",
+            "corundum_synthetic", "diamond", "emerald", "emerald_geothermal",
+            "fianit", "garnet", "garnet_synthetic", "mix", "nacre",
+            "nanocrystal", "onyx", "pearl", "quartz", "quartz_smoky",
+            "rhodolite", "ruby", "sapphire", "sapphire_geothermal",
+            "sitall", "spinel", "topaz", "tourmaline", "turquoise"
+        ]
+    )
+    gem_features = {f"Main_gem_{gem}": (main_gem == gem) for gem in [
+        "amber", "amethyst", "chrysolite", "chrysoprase", "citrine", "coral",
+        "corundum_synthetic", "diamond", "emerald", "emerald_geothermal",
+        "fianit", "garnet", "garnet_synthetic", "mix", "nacre",
+        "nanocrystal", "onyx", "pearl", "quartz", "quartz_smoky",
+        "rhodolite", "ruby", "sapphire", "sapphire_geothermal",
+        "sitall", "spinel", "topaz", "tourmaline", "turquoise"
+    ]}
 
     # Create feature dictionary
     features = {
@@ -104,8 +121,9 @@ def user_input_features():
         'Brand_ID_2.0': brand_2,
         'Brand_ID_3.0': brand_3,
         'Brand_ID_4.0': brand_4,
-        'Brand_ID_5.0': brand_5
+        'Brand_ID_5.0': brand_5,
     }
+    features.update(gem_features)
 
     return pd.DataFrame(features, index=[0])
 
@@ -120,4 +138,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
