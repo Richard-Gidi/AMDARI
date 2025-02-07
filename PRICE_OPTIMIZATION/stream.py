@@ -21,7 +21,7 @@ def sidebar_navigation():
 
 # Home page content
 def home_page():
-    st.title("Jewelry Price Optimization")
+    st.title("Jewelry Price Optimization Project")
     st.header("About the Project")
     st.write("""
     This application is designed to assist jewelry businesses in predicting optimal pricing for their products. 
@@ -43,7 +43,6 @@ def home_page():
     Metrics like R² and RMSE highlight the model's performance, and you can view these in the sidebar.
     """)
 
-
 # Prediction page content
 def prediction_page():
     st.sidebar.header("Model Performance Metrics")
@@ -56,7 +55,7 @@ def prediction_page():
     if st.button("Predict"):
         prediction = model.predict(input_df)
         st.success(f"Predicted Price: ${prediction[0]:.2f} USD")
-        
+
 # Feature Explanation page
 def feature_explanation_page():
     st.title("Feature Explanation")
@@ -64,7 +63,7 @@ def feature_explanation_page():
     Below is a breakdown of each feature used in the model:
     
     - **Year**: The year the jewelry product was sold.
-    - **Month**: The month of sale (1-12). 1 is January, 2 is February in that order
+    - **Month**: The month of sale (1-12). 1 is Jan, 2 is Feb in that order.
     - **Hour**: The hour of the day the transaction occurred (0-23).
     - **Main Metal**: The primary metal used in the jewelry (Platinum, Silver, etc.).
     - **Main Color**: The primary color of the jewelry (White, Yellow, Unknown).
@@ -75,7 +74,6 @@ def feature_explanation_page():
     
     Each categorical feature is converted into a one-hot encoded format for model training.
     """)
-
 
 # Input features function
 def user_input_features():
@@ -148,7 +146,6 @@ def main():
         prediction_page()
     elif page == "Feature Explanation":
         feature_explanation_page()
-
 
 if __name__ == "__main__":
     main()
