@@ -144,10 +144,11 @@ def main():
 
     if page == "Home":
         home_page()
-    elif page == "Prediction":
-        prediction_page()
     elif page == "Feature Explanation":
         feature_explanation_page()
+    elif page == "Prediction":
+        prediction_page()
+
 
 if __name__ == "__main__":
     main()
