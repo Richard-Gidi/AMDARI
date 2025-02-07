@@ -1,4 +1,3 @@
-
 import streamlit as st
 import joblib
 import pandas as pd
@@ -18,11 +17,11 @@ METRICS = {
 # Sidebar navigation
 def sidebar_navigation():
     st.sidebar.title("Navigation")
-    return st.sidebar.radio("Go to", ["Home", "Prediction"])
+    return st.sidebar.radio("Go to", ["Home", "Prediction", "Feature Explanation"])
 
 # Home page content
 def home_page():
-    st.title("Jewelry Price Optimization Project")
+    st.title("Jewelry Price Optimization")
     st.header("About the Project")
     st.write("""
     This application is designed to assist jewelry businesses in predicting optimal pricing for their products. 
@@ -56,6 +55,25 @@ def prediction_page():
     if st.button("Predict"):
         prediction = model.predict(input_df)
         st.success(f"Predicted Price: ${prediction[0]:.2f} USD")
+
+# Feature Explanation page
+def feature_explanation_page():
+    st.title("Feature Explanation")
+    st.write("""
+    Below is a breakdown of each feature used in the model:
+    
+    - **Year**: The year the jewelry product was sold.
+    - **Month**: The month of sale (1-12). 1 is January, 2 is February in that order
+    - **Hour**: The hour of the day the transaction occurred (0-23).
+    - **Main Metal**: The primary metal used in the jewelry (Platinum, Silver, etc.).
+    - **Main Color**: The primary color of the jewelry (White, Yellow, Unknown).
+    - **Gender**: The target gender for the jewelry (Male, Female, Unknown).
+    - **Category**: The type of jewelry (e.g., brooch, earring, necklace, etc.).
+    - **Brand**: The brand under which the jewelry is sold (Brand 1, Brand 2, etc.).
+    - **Main Gemstone**: The primary gemstone used in the jewelry (e.g., diamond, emerald, ruby, etc.).
+    
+    Each categorical feature is converted into a one-hot encoded format for model training.
+    """)
 
 # Input features function
 def user_input_features():
@@ -92,26 +110,6 @@ def user_input_features():
     brand_4 = (brand == "Brand 4")
     brand_5 = (brand == "Brand 5")
 
-    main_gem = st.selectbox(
-        "Main Gemstone",
-        [
-            "amber", "amethyst", "chrysolite", "chrysoprase", "citrine", "coral",
-            "corundum_synthetic", "diamond", "emerald", "emerald_geothermal",
-            "fianit", "garnet", "garnet_synthetic", "mix", "nacre",
-            "nanocrystal", "onyx", "pearl", "quartz", "quartz_smoky",
-            "rhodolite", "ruby", "sapphire", "sapphire_geothermal",
-            "sitall", "spinel", "topaz", "tourmaline", "turquoise"
-        ]
-    )
-    gem_features = {f"Main_gem_{gem}": (main_gem == gem) for gem in [
-        "amber", "amethyst", "chrysolite", "chrysoprase", "citrine", "coral",
-        "corundum_synthetic", "diamond", "emerald", "emerald_geothermal",
-        "fianit", "garnet", "garnet_synthetic", "mix", "nacre",
-        "nanocrystal", "onyx", "pearl", "quartz", "quartz_smoky",
-        "rhodolite", "ruby", "sapphire", "sapphire_geothermal",
-        "sitall", "spinel", "topaz", "tourmaline", "turquoise"
-    ]}
-
     features = {
         'Year': year,
         'Month': month,
@@ -135,7 +133,6 @@ def user_input_features():
         'Brand_ID_4.0': brand_4,
         'Brand_ID_5.0': brand_5,
     }
-    features.update(gem_features)
 
     return pd.DataFrame(features, index=[0])
 
@@ -147,6 +144,8 @@ def main():
         home_page()
     elif page == "Prediction":
         prediction_page()
+    elif page == "Feature Explanation":
+        feature_explanation_page()
 
 if __name__ == "__main__":
     main()
