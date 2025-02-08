@@ -34,11 +34,6 @@ def home_page():
     - Provide insights for pricing strategies based on historical data and product attributes.
     - Optimize pricing to maximize profit while ensuring customer satisfaction.
     """)
-
-    # Adding images of jewelry
-    st.subheader("Explore Our Jewelry")
-    st.image("PRICE_OPTIMIZATION/images/elegant_d.jpg", caption="Elegant Diamond Necklace", height=300)
-    st.image("PRICE_OPTIMIZATION/images/blue.jpg", caption="Golden Ring with Sapphire", height=300)
     
     st.header("How It Works")
     st.write("""
