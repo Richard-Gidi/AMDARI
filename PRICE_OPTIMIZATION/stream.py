@@ -34,6 +34,12 @@ def home_page():
     - Provide insights for pricing strategies based on historical data and product attributes.
     - Optimize pricing to maximize profit while ensuring customer satisfaction.
     """)
+
+    # Adding images of jewelry
+    st.subheader("Explore Our Jewelry")
+    st.image("images/elegant_d.jpg", caption="Elegant Diamond Necklace", use_column_width=True)
+    st.image("images/blue.jpg", caption="Golden Ring with Sapphire", use_column_width=True)
+    
     st.header("How It Works")
     st.write("""
     1. Navigate to the "Prediction" page using the sidebar.
