@@ -37,8 +37,8 @@ def home_page():
 
     # Adding images of jewelry
     st.subheader("Explore Our Jewelry")
-    st.image("PRICE_OPTIMIZATION/images/elegant_d.jpg", caption="Elegant Diamond Necklace", use_column_width=True)
-    st.image("PRICE_OPTIMIZATION/images/blue.jpg", caption="Golden Ring with Sapphire", use_column_width=True)
+    st.image("PRICE_OPTIMIZATION/images/elegant_d.jpg", caption="Elegant Diamond Necklace", width=600,height=300)
+    st.image("PRICE_OPTIMIZATION/images/blue.jpg", caption="Golden Ring with Sapphire", width=600,height=300)
     
     st.header("How It Works")
     st.write("""
