@@ -1,4 +1,4 @@
-# AMDARI INTERNSHIP REPOSITORY
+# AMDARI REPOSITORY
 
 Welcome to the Amdari Repository! This repository contains various projects that utilizes Python,MLflow,ML for data analysis, model building and deployment. Each project is organized into its own folder, making it easy to navigate and find specific analysis.
 
