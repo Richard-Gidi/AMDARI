@@ -76,7 +76,7 @@ def prediction_page():
 
     if st.button("Predict"):
         prediction = model.predict(input_df)
-        st.success(f"Predicted Price: ${prediction[0]:.2f} USD")
+        st.success(f"Predicted Price: ${prediction[0]:.2f}")
 
 # Input features function
 def user_input_features():
